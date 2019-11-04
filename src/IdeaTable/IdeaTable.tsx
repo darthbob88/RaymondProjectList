@@ -8,7 +8,6 @@ const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({ listOfIdeas }) => 
     return (
       <React.Fragment>
         <h1>List of Ideas</h1>
-        {JSON.stringify(listOfIdeas)}
         <ul id="ideaTable">
           {" "}
           {listOfIdeas.map(idea => (
