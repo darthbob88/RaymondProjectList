@@ -5,5 +5,16 @@ export default interface Idea {
 }
 
 export const defaultIdeaList: Idea[] = [
-    { description: "butts", summary: "butts", slug: "butts" },
-{ description: "foo", summary: "bar", slug: "baz" }];
+         {
+           summary: "Rebuild Media Logger",
+           description:
+             "Rebuild media library cataloger, using .NET Core and proper separation of concerns.",
+           slug: "rebuild-media-logger"
+         },
+         {
+           summary: "Voting App/Library",
+           description:
+             "Build an app to support polls using various methods of voting, including but not limited to IRV, score voting, and STV.",
+           slug: "voting-app"
+         }
+       ];
