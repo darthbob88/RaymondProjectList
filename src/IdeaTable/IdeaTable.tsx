@@ -9,7 +9,6 @@ const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({ listOfIdeas }) => 
       <React.Fragment>
         <h1>List of Ideas</h1>
         <ul id="ideaTable">
-          {" "}
           {listOfIdeas.map(idea => (
             <IdeaListing key={idea.slug} idea={idea} />
           ))}
