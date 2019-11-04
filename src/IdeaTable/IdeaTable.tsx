@@ -5,19 +5,19 @@ type IdeaTableProps = {
     listOfIdeas: Idea[];
 }
 const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({ listOfIdeas }) => {
-    return (
+    return (<React.Fragment>
+        <h1>List of Ideas</h1>
         <ul id="ideaTable"> {
-            listOfIdeas.map(idea => ideaListing(idea))
+            listOfIdeas.map(idea => <IdeaListing idea={idea} />)
         }
-        </ul>
+        </ul></React.Fragment>
     )
 }
 
+type IdeaListingProps = {idea: Idea};
 /**TODO: Better name. */
-const ideaListing = (idea: Idea) => {
-return (    <li key={idea.slug} className="ideaListing">
-        <h3>{idea.summary} </h3>
-    <p>{idea.description}</p></li>);
-}
+const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({idea}) => (<li key={idea.slug} className="ideaListing">
+    <h3>Summary: {idea.summary} </h3>
+    <p>{idea.description}</p></li>)
 
 export default IdeaTable
