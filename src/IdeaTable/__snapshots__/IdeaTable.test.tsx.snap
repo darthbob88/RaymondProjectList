@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h1>
+    List of Ideas
+  </h1>,
+  <ul
+    id="ideaTable"
+  >
+    <li
+      className="ideaListing"
+    >
+      <h3>
+        Summary: 
+        Rebuild Media Logger
+         
+      </h3>
+      <p>
+        Rebuild media library cataloger, using .NET Core and proper separation of concerns.
+      </p>
+    </li>
+    <li
+      className="ideaListing"
+    >
+      <h3>
+        Summary: 
+        Voting App/Library
+         
+      </h3>
+      <p>
+        Build an app to support polls using various methods of voting, including but not limited to IRV, score voting, and STV.
+      </p>
+    </li>
+  </ul>,
+]
+`;
