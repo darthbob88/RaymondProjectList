@@ -34,13 +34,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
     }
   };
   submitIdea = (event: any) => {
-    const newIdea = {
-      summary: this.state.summary,
-      description: this.state.description,
-      slug: this.state.slug
-    };
-
-    this.props.addNewIdea(newIdea);
+    this.props.addNewIdea(this.state);
     event.preventDefault();
   };
   render() {
