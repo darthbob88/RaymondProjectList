@@ -11,14 +11,17 @@ export default class IdeaListPage extends Component<{},  { listOfIdeas: Idea[] }
       listOfIdeas: []
     };
 
+    //TODO: Turn this into a real-time watcher, so it gets automatically updated.
+    //TODO: Pull this into a separate ideasService
     databaseRef
       .collection("ideas")
       .get()
       .then(querySnapshot => {
         // this.setState({ listOfIdeas: querySnapshot });
         querySnapshot.forEach(doc => {
+          const newIdea = {...doc.data(), id: doc.id} as Idea;
           // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-          this.setState({listOfIdeas: [...this.state.listOfIdeas, doc.data() as Idea]})
+          this.setState({listOfIdeas: [...this.state.listOfIdeas, newIdea]})
         });
       });
   }
