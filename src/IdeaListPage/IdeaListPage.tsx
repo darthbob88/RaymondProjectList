@@ -17,7 +17,6 @@ export default class IdeaListPage extends Component<{},  { listOfIdeas: Idea[] }
     //   .collection("ideas")
     //   .get()
     //   .then(querySnapshot => {
-    //     // this.setState({ listOfIdeas: querySnapshot });
     //     querySnapshot.forEach(doc => {
     //       const newIdea = {...doc.data(), id: doc.id} as Idea;
     //       // console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
@@ -28,17 +27,17 @@ export default class IdeaListPage extends Component<{},  { listOfIdeas: Idea[] }
 
   addNewIdea = (newIdea: Idea) => {
     const oldIdeas = this.state.listOfIdeas;
-    // databaseRef
-    //   .collection("ideas")
-    //   .add(newIdea)
-    //   .then(docRef => {
-    //     this.setState({
-    //       listOfIdeas: [...oldIdeas, newIdea]
-    //     });
-    //   })
-    //   .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    //   });
+    databaseRef
+      .collection("ideas")
+      .add(newIdea)
+      .then(docRef => {
+        this.setState({
+          listOfIdeas: [...oldIdeas, newIdea]
+        });
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
   };
 
   render() {
