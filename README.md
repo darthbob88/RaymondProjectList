@@ -1,4 +1,4 @@
-## Raymond's Project List
+# Raymond's Project List
 
 <!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
 ![GitHub repo size](https://img.shields.io/github/languages/code-size/darthbob88/raymond-project-list)
@@ -10,6 +10,7 @@ Will include at minimum a list of ideas, with detailed descriptions, and the abi
 Currently hosted at https://raymondprojectlist.firebaseapp.com/
 
 ## Contributing to This Project
+
 To contribute to this project, follow these steps:
 
 1. Fork this repository.
