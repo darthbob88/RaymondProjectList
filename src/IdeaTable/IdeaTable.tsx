@@ -1,9 +1,20 @@
 import React from 'react'
-import Idea from "../models/Idea";
+import Idea, {defaultIdeaList} from "../models/Idea";
 
 type IdeaTableProps = {
     listOfIdeas: Idea[];
 }
+/**
+ * Simple table to list ideas for me to work on. Will eventually fix it to show only summaries
+ * until somebody clicks an idea to expand it, but for now this will do.
+ * @param {Idea[]} listOfIdeas - An array of Idea to show
+ * @component
+ * @example
+ * const ideaList = defaultIdeaList
+ * return (
+ *   <IdeaTable listOfIdeas={ideaList} />
+ * )
+ */
 const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({ listOfIdeas }) => {
     return (
       <React.Fragment>
