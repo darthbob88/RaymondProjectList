@@ -19,16 +19,18 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
   componentDidMount() {
     IdeasService.fetchAllIdeas().then(result =>
       this.setState({ listOfIdeas: result, isLoading: false })
-    );
+    ).catch(error => console.log(error));
   }
 
   addNewIdea = (newIdea: Idea) => {
     const oldIdeas = this.state.listOfIdeas;
 
-    IdeasService.addIdea(newIdea).then(result => {
-      const addedIdea = result.data() as Idea;
-      this.setState({ listOfIdeas: [...oldIdeas, addedIdea] });
-    });
+    IdeasService.addIdea(newIdea)
+      .then(result => {
+        const addedIdea = result.data() as Idea;
+        this.setState({ listOfIdeas: [...oldIdeas, addedIdea] });
+      })
+      .catch(error => console.log(error));
   };
 
   render() {
