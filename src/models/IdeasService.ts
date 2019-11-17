@@ -11,8 +11,9 @@ export const fetchAllIdeas = async ():Promise<Idea[]> => {
   }); 
   return listOfIdeas;
 };
-
-export const addIdea = async (newIdea: Idea) => {
+//TODO: Should this return a single idea, or the entire updated list?
+export const addIdea = async (newIdea: Idea):Promise<Idea> => {
   const docRef = await databaseRef.collection("ideas").add(newIdea);
-  return docRef.get();
+ const actualDocument = await docRef.get();
+  return actualDocument.data() as Idea;
 };
