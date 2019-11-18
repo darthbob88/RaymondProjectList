@@ -17,9 +17,10 @@ export const addIdea = async (newIdea: Idea): Promise<Idea> => {
     .collection("ideas")
     .doc(newIdea.slug)
     .set(newIdea, { merge: true });
-  const addedIdea = await databaseRef
-    .collection("ideas")
-    .doc(newIdea.slug)
-    .get();
-  return addedIdea.data() as Idea;
+  // const addedIdea = await databaseRef
+  //   .collection("ideas")
+  //   .doc(newIdea.slug)
+  //   .get();
+  // return addedIdea.data() as Idea;
+  return newIdea;
 };
