@@ -24,3 +24,17 @@ export const addIdea = async (newIdea: Idea): Promise<Idea> => {
   // return addedIdea.data() as Idea;
   return newIdea;
 };
+export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
+  //TODO: Maybe I should abstract this to just ideasDB so I don't have to keep writing it out.
+  const docRef = databaseRef.collection("ideas").doc(ideaID);
+  let ideaSnapshot = await docRef.get();
+
+  if (ideaSnapshot.exists) {
+    console.log("Document data:", ideaSnapshot.data());
+    return ideaSnapshot.data() as Idea;
+  } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+    throw new Error("No such document!");
+  }
+};
