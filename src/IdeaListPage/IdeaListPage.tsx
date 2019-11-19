@@ -17,10 +17,14 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
   }
 
   componentDidMount() {
-   const result = defaultIdeaList;
+    const result = defaultIdeaList;
     // IdeasService.fetchAllIdeas().then(result =>
-      this.setState({ listOfIdeas: result, isLoading: false })
-    // ).catch(error => console.log(error));
+    IdeasService.fetchSpecificIdea("setup-portfolio")
+      .then(result => {
+        const newIdeaList = [result];
+        this.setState({ listOfIdeas: newIdeaList, isLoading: false });
+      })
+      .catch(error => console.log(error));
   }
 
   addNewIdea = (newIdea: Idea) => {
