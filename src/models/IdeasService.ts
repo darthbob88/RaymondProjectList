@@ -17,12 +17,11 @@ export const addIdea = async (newIdea: Idea): Promise<Idea> => {
     .collection("ideas")
     .doc(newIdea.slug)
     .set(newIdea, { merge: true });
-  // const addedIdea = await databaseRef
-  //   .collection("ideas")
-  //   .doc(newIdea.slug)
-  //   .get();
-  // return addedIdea.data() as Idea;
-  return newIdea;
+  const addedIdea = await databaseRef
+    .collection("ideas")
+    .doc(newIdea.slug)
+    .get();
+  return addedIdea.data() as Idea;
 };
 export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
   //TODO: Maybe I should abstract this to just ideasDB so I don't have to keep writing it out.
@@ -30,11 +29,11 @@ export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
   let ideaSnapshot = await docRef.get();
 
   if (ideaSnapshot.exists) {
-    console.log("Document data:", ideaSnapshot.data());
+    // console.log("Document data:", ideaSnapshot.data());
     return ideaSnapshot.data() as Idea;
   } else {
     // doc.data() will be undefined in this case
-    console.log("No such document!");
+    // console.log("No such document!");
     throw new Error("No such document!");
   }
 };
