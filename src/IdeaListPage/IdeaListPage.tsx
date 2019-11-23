@@ -21,13 +21,10 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
     this.setState({ listOfIdeas: result, isLoading: false });
   }
 
-  addNewIdea = (newIdea: Idea) => {
+  addNewIdea = async (newIdea: Idea) => {
     const oldIdeas = this.state.listOfIdeas;
-    IdeasService.addIdea(newIdea)
-      .then(result => {
+    const result = await IdeasService.addIdea(newIdea);
         this.setState({ listOfIdeas: [...oldIdeas, result] });
-      })
-      .catch(error => console.log(error));
   };
 
   render() {
