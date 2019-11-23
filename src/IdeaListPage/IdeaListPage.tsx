@@ -16,15 +16,9 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
     };
   }
 
-  componentDidMount() {
-    const result = defaultIdeaList;
-    // IdeasService.fetchAllIdeas().then(result =>
-    IdeasService.fetchSpecificIdea("setup-portfolio")
-      .then(result => {
-        const newIdeaList = [result];
-        this.setState({ listOfIdeas: newIdeaList, isLoading: false });
-      })
-      .catch(error => console.log(error));
+  async componentDidMount() {
+    const result = await IdeasService.fetchAllIdeas();
+    this.setState({ listOfIdeas: result, isLoading: false });
   }
 
   addNewIdea = (newIdea: Idea) => {
