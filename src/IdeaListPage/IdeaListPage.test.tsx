@@ -17,13 +17,13 @@ describe("IdeaListPage", () => {
     // container = null;
   });
 
-  xit("renders without crashing", () => {
+  it("renders without crashing", () => {
     act(() => {
       ReactDOM.render(<IdeaListPage />, container);
     });
   });
 
-  xit("renders a list of the right length", () => {
+  it("renders a list of the right length", () => {
     act(() => {
       ReactDOM.render(<IdeaListPage />, container);
     });
