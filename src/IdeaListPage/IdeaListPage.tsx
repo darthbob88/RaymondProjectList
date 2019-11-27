@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import IdeaTable from "../IdeaTable/IdeaTable";
-import Idea, { defaultIdeaList } from "../models/Idea";
+import Idea from "../models/Idea";
 import NewIdeaForm from "../NewIdeaForm/NewIdeaForm";
 import * as IdeasService from "../models/IdeasService";
 type IdeaListPageState = {
@@ -24,7 +24,7 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
   addNewIdea = async (newIdea: Idea) => {
     const oldIdeas = this.state.listOfIdeas;
     const result = await IdeasService.addIdea(newIdea);
-        this.setState({ listOfIdeas: [...oldIdeas, result] });
+    this.setState({ listOfIdeas: [...oldIdeas, result] });
   };
 
   render() {

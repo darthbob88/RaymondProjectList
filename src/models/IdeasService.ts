@@ -1,3 +1,4 @@
+import slugify from "slugify";
 import { databaseRef } from "../firebase";
 import Idea from "./Idea";
 
@@ -6,20 +7,21 @@ export const fetchAllIdeas = async (): Promise<Idea[]> => {
   let listOfIdeas: Idea[] = [];
   const querySnapshot = await databaseRef.collection("ideas").get();
   listOfIdeas = querySnapshot.docs.map(doc => {
-    const newIdea = { ...doc.data(), id: doc.id } as Idea;
+    const newIdea = doc.data() as Idea;
     return newIdea;
   });
   return listOfIdeas;
 };
 //TODO: Should this return a single idea, or the entire updated list?
 export const addIdea = async (newIdea: Idea): Promise<Idea> => {
+  const newIdeaSlug = slugify(newIdea.summary);
   await databaseRef
     .collection("ideas")
-    .doc(newIdea.slug)
+    .doc(newIdeaSlug)
     .set(newIdea, { merge: true });
   const addedIdea = await databaseRef
     .collection("ideas")
-    .doc(newIdea.slug)
+    .doc(newIdeaSlug)
     .get();
   return addedIdea.data() as Idea;
 };

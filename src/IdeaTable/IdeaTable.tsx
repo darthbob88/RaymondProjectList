@@ -1,5 +1,5 @@
 import React from 'react'
-import Idea, {defaultIdeaList} from "../models/Idea";
+import Idea from "../models/Idea";
 
 type IdeaTableProps = {
     listOfIdeas: Idea[];

@@ -1,8 +1,10 @@
+/**
+ * 
+ */
 export default interface Idea {
   summary: string;
   description: string;
-  slug: string;
-  id?: string;
+  slug?: string;
 }
 
 // Default list of ideas, so I have something to show, and default new idea to add.
