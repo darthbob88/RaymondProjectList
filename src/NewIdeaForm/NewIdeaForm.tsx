@@ -12,7 +12,8 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
       summary: ""
     };
   }
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //TODO: There has to be an overarching type for this.
+  handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = event.currentTarget;
     const value = target.value;
     const name = target.name;
@@ -43,8 +44,8 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
           </label>
           <label>
             Long description of the idea
-            <input
-              type="text"
+            <textarea
+              rows={6}
               name="description"
               onChange={this.handleChange}
             />
