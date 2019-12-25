@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Idea from "../models/Idea";
+import Idea, { IdeaStatus } from "../models/Idea";
 interface NewIdeaProps {
   addNewIdea: (newIdea: Idea) => void;
 }
@@ -9,7 +9,8 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
     super(props);
     this.state = {
       description: "",
-      summary: ""
+      summary: "",
+      currentStatus:IdeaStatus.ToDo
     };
   }
   //TODO: There has to be an overarching type for this.
