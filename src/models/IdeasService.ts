@@ -7,7 +7,7 @@ export const fetchAllIdeas = async (): Promise<Idea[]> => {
   let listOfIdeas: Idea[] = [];
   const querySnapshot = await databaseRef.collection("ideas").get();
   listOfIdeas = querySnapshot.docs.map(doc => {
-    const newIdea = doc.data() as Idea;
+    const newIdea = { ...doc.data() as Idea, slug: doc.id };
     return newIdea;
   });
   return listOfIdeas;
@@ -32,7 +32,7 @@ export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
 
   if (ideaSnapshot.exists) {
     // console.log("Document data:", ideaSnapshot.data());
-    return ideaSnapshot.data() as Idea;
+    return { ...ideaSnapshot.data() as Idea, slug: ideaSnapshot.id };
   } else {
     // doc.data() will be undefined in this case
     // console.log("No such document!");
