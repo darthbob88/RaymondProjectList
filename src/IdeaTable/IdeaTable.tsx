@@ -32,6 +32,7 @@ type IdeaListingProps = {idea: Idea};
 /**TODO: Better name. */
 const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({idea}) => (<li  className="ideaListing">
     <h3>Summary: {idea.summary} </h3>
-    <p>{idea.description}</p></li>)
+    <p><b>Description</b>: {idea.description}</p>
+    <p><b>Status</b>: {idea.currentStatus}</p></li>)
 
 export default IdeaTable
