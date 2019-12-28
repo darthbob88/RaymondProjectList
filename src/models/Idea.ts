@@ -1,13 +1,20 @@
 /**
- * 
+ * A basic type to contain project ideas/requests for me to work on.
+ * @property {string} summary Brief summary of the project.
+ * @property {string} description Longer and more detailed explanation of the project.
+ * @property {?string} projectURL URL for the project, if any.
+ * @property {?string} repositoryURL URL for the project repository.
+ * @property {string} slug URL slug used for individual project pages.
+ * @property {IdeaStatus} currentStatus Current status of the project. To do, doing, done, etc.
  */
-export default interface Idea {
+//TODO: Get this integrated with some documentation generator
+ export default interface Idea {
   summary: string;
   description: string;
   projectURL?: string;
   repositoryURL?: string;
   currentStatus: IdeaStatus
-  slug?: string;
+  slug: string;
 }
 
 

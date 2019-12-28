@@ -38,4 +38,6 @@ export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
     // console.log("No such document!");
     throw new Error("No such document!");
   }
+
+  //TODO: Add updateIdea(ideaID) function
 };

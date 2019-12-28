@@ -1,3 +1,4 @@
+# TODO: Get an integrated documentation generator, and for the love of God fix whatever is breaking tests.
 steps:
 # Install
 - name: 'gcr.io/cloud-builders/npm'
