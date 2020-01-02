@@ -10,7 +10,8 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
     this.state = {
       description: "",
       summary: "",
-      currentStatus:IdeaStatus.ToDo
+      currentStatus:IdeaStatus.ToDo,
+      slug:""
     };
   }
   //TODO: There has to be an overarching type for this.
