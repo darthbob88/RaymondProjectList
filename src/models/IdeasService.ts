@@ -23,12 +23,12 @@ export const addIdea = async (newIdea: Idea): Promise<Idea> => {
     .collection("ideas")
     .doc(newIdeaSlug)
     .get();
-  return addedIdea.data() as Idea;
+  return { ...addedIdea.data() as Idea, slug: addedIdea.id };
 };
 export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
   //TODO: Maybe I should abstract this to just ideasDB so I don't have to keep writing it out.
   const docRef = databaseRef.collection("ideas").doc(ideaID);
-  let ideaSnapshot = await docRef.get();
+  const ideaSnapshot = await docRef.get();
 
   if (ideaSnapshot.exists) {
     // console.log("Document data:", ideaSnapshot.data());
@@ -38,6 +38,11 @@ export const fetchSpecificIdea = async (ideaID: string): Promise<Idea> => {
     // console.log("No such document!");
     throw new Error("No such document!");
   }
-
-  //TODO: Add updateIdea(ideaID) function
 };
+export const updateIdea = async (ideaID: string, ideaPatch: Partial<Idea>): Promise<Idea> => {
+  const docRef = databaseRef.collection("ideas").doc(ideaID);
+  await docRef.update(ideaPatch)
+  const updatedIdea = await docRef.get();
+  const result:Idea =  { ...updatedIdea.data() as Idea, slug: updatedIdea.id };
+  return result;
+}
