@@ -41,8 +41,9 @@ const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({ idea }) => (
     <p>
       <b>Status</b>: {idea.currentStatus}
     </p>
-    //TODO: Maybe turn this into its own component, or turn Status into a union type? Just something to remove the need for a check here.
-    //TODO: Or maybe shift this into a separate detail component, and only show description and summary on the main page.
+    {/* TODO: Maybe turn this into its own component, or turn Status into a union type? Just something to remove the need for a check here.
+  TODO: Or maybe shift this into a separate detail component, and only show description and summary on the main page. */
+  }
     {idea.currentStatus !== IdeaStatus.ToDo && (
       <React.Fragment>
         <p>

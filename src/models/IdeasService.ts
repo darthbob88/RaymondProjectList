@@ -1,6 +1,6 @@
 import slugify from "slugify";
 import { databaseRef } from "../firebase";
-import Idea from "./Idea";
+import Idea, { NewIdea } from "./Idea";
 
 //TODO: Turn this into a real-time watcher, so it gets automatically updated.
 export const fetchAllIdeas = async (): Promise<Idea[]> => {
@@ -13,8 +13,8 @@ export const fetchAllIdeas = async (): Promise<Idea[]> => {
   return listOfIdeas;
 };
 //TODO: Should this return a single idea, or the entire updated list?
-export const addIdea = async (newIdea: Idea): Promise<Idea> => {
-  const newIdeaSlug = slugify(newIdea.summary);
+export const addIdea = async (newIdea: NewIdea): Promise<Idea> => {
+  const newIdeaSlug = slugify(newIdea.summary.toLowerCase());
   await databaseRef
     .collection("ideas")
     .doc(newIdeaSlug)

@@ -16,7 +16,8 @@ export default interface Idea {
   currentStatus: IdeaStatus
   slug: string;
 }
-
+/**Used just for adding ideas,  */
+export type NewIdea = Pick<Idea, "description" | "summary" | "currentStatus">
 
 export enum IdeaStatus {
   Done = "Done",

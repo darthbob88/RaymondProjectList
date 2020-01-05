@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import Idea, { IdeaStatus } from "../models/Idea";
+import { IdeaStatus, NewIdea } from "../models/Idea";
 interface NewIdeaProps {
-  addNewIdea: (newIdea: Idea) => void;
+  addNewIdea: (newIdea: NewIdea) => void;
 }
 
-export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
+export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
   constructor(props: NewIdeaProps) {
     super(props);
     this.state = {
       description: "",
       summary: "",
-      currentStatus:IdeaStatus.ToDo,
-      slug:""
+      currentStatus:IdeaStatus.ToDo
     };
   }
   //TODO: There has to be an overarching type for this.
@@ -40,6 +39,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
     return (
       <React.Fragment>
         <form>
+          <h3>Adding New Idea</h3>
           <label>
             One-sentence summary of the idea
             <input type="text" name="summary" onChange={this.handleChange} />
