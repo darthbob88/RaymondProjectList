@@ -24,7 +24,7 @@ const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({
       <h1>List of Ideas</h1>
       <ul id="ideaTable">
         {listOfIdeas.map(idea => (
-     <Link to={`/ideas/${idea.slug}`}> <IdeaListing key={idea.slug} idea={idea} /></Link>
+     <IdeaListing key={idea.slug} idea={idea} />
         ))}
       </ul>
     </React.Fragment>
@@ -42,6 +42,7 @@ const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({ idea }) => (
     <p>
       <b>Status</b>: {idea.currentStatus}
     </p>
+    <Link to={`/ideas/${idea.slug}`}> Details </Link>
   </li>
 );
 
