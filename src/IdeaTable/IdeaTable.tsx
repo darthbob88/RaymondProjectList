@@ -1,6 +1,6 @@
 import React from "react";
 import Idea from "../models/Idea";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 type IdeaTableProps = {
   listOfIdeas: Idea[];
