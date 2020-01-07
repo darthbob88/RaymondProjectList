@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import IdeaTable from "../IdeaTable/IdeaTable";
 import Idea, { NewIdea } from "../models/Idea";
-// import NewIdeaForm from "../NewIdeaForm/NewIdeaForm";
+import NewIdeaForm from "../NewIdeaForm/NewIdeaForm";
 import * as IdeasService from "../models/IdeasService";
-import UpdateIdeaForm from "../UpdateIdeaForm/UpdateIdeaForm";
 type IdeaListPageState = {
   listOfIdeas: Idea[];
   isLoading: boolean;
@@ -43,8 +42,8 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
         ) : (
           <IdeaTable listOfIdeas={this.state.listOfIdeas} />
         )}
-        {/* <NewIdeaForm addNewIdea={this.addNewIdea} /> */}
-{ this.state.listOfIdeas.length > 1 && <UpdateIdeaForm updateExistingIdea={this.updateIdea} currentIdea={this.state.listOfIdeas[1]} /> }
+        <NewIdeaForm addNewIdea={this.addNewIdea} />
+
       </React.Fragment>
     );
   }

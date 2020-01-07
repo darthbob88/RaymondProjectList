@@ -1,5 +1,6 @@
 import React from "react";
-import Idea, { IdeaStatus } from "../models/Idea";
+import Idea from "../models/Idea";
+import { Link } from "react-router-dom";
 
 type IdeaTableProps = {
   listOfIdeas: Idea[];
@@ -23,7 +24,7 @@ const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({
       <h1>List of Ideas</h1>
       <ul id="ideaTable">
         {listOfIdeas.map(idea => (
-          <IdeaListing key={idea.slug} idea={idea} />
+     <IdeaListing key={idea.slug} idea={idea} />
         ))}
       </ul>
     </React.Fragment>
@@ -41,19 +42,7 @@ const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({ idea }) => (
     <p>
       <b>Status</b>: {idea.currentStatus}
     </p>
-    {/* TODO: Maybe turn this into its own component, or turn Status into a union type? Just something to remove the need for a check here.
-  TODO: Or maybe shift this into a separate detail component, and only show description and summary on the main page. */
-  }
-    {idea.currentStatus !== IdeaStatus.ToDo && (
-      <React.Fragment>
-        <p>
-          <b>Repository URL</b>: {idea.repositoryURL}
-        </p>
-        <p>
-          <b>Website URL</b>: {idea.projectURL}
-        </p>
-      </React.Fragment>
-    )}
+    <Link to={`/ideas/${idea.slug}`}> Details </Link>
   </li>
 );
 
