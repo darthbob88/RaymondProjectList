@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import IdeaTable from "../IdeaTable/IdeaTable";
-import Idea, { defaultIdeaList } from "../models/Idea";
+import Idea, { NewIdea } from "../models/Idea";
 import NewIdeaForm from "../NewIdeaForm/NewIdeaForm";
 import * as IdeasService from "../models/IdeasService";
 type IdeaListPageState = {
@@ -21,12 +21,19 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
     this.setState({ listOfIdeas: result, isLoading: false });
   }
 
-  addNewIdea = async (newIdea: Idea) => {
+  addNewIdea = async (newIdea: NewIdea) => {
     const oldIdeas = this.state.listOfIdeas;
     const result = await IdeasService.addIdea(newIdea);
-        this.setState({ listOfIdeas: [...oldIdeas, result] });
+    this.setState({ listOfIdeas: [...oldIdeas, result] });
   };
 
+  updateIdea = async(currentIdeaID: string, updatedIdea: Partial<Idea>) => {
+    const oldIdeas = this.state.listOfIdeas;
+    const result = await IdeasService.updateIdea(currentIdeaID, updatedIdea);
+    const spliceIndex = oldIdeas.findIndex(item => item.slug === currentIdeaID);
+    oldIdeas.splice(spliceIndex, 1, result);
+    this.setState({ listOfIdeas: oldIdeas });
+  }
   render() {
     return (
       <React.Fragment>
@@ -36,6 +43,7 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
           <IdeaTable listOfIdeas={this.state.listOfIdeas} />
         )}
         <NewIdeaForm addNewIdea={this.addNewIdea} />
+
       </React.Fragment>
     );
   }

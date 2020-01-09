@@ -2,6 +2,7 @@
 
 exports[`renders correctly 1`] = `
 Array [
+  " ",
   <h1>
     List of Ideas
   </h1>,
@@ -13,12 +14,58 @@ Array [
     >
       <h3>
         Summary: 
+        Set up portfolio
+         
+      </h3>
+      <p>
+        <b>
+          Description
+        </b>
+        : 
+        Set up personal website, mostly for this but also for hosting Calibre
+      </p>
+      <p>
+        <b>
+          Status
+        </b>
+        : 
+        To Do
+      </p>
+      <a
+        href="/ideas/Set-up-portfolio"
+        onClick={[Function]}
+      >
+         Details 
+      </a>
+    </li>
+    <li
+      className="ideaListing"
+    >
+      <h3>
+        Summary: 
         Rebuild Media Logger
          
       </h3>
       <p>
+        <b>
+          Description
+        </b>
+        : 
         Rebuild media library cataloger, using .NET Core and proper separation of concerns.
       </p>
+      <p>
+        <b>
+          Status
+        </b>
+        : 
+        To Do
+      </p>
+      <a
+        href="/ideas/rebuild-media-logger"
+        onClick={[Function]}
+      >
+         Details 
+      </a>
     </li>
     <li
       className="ideaListing"
@@ -29,8 +76,54 @@ Array [
          
       </h3>
       <p>
+        <b>
+          Description
+        </b>
+        : 
         Build an app to support polls using various methods of voting, including but not limited to IRV, score voting, and STV.
       </p>
+      <p>
+        <b>
+          Status
+        </b>
+        : 
+        To Do
+      </p>
+      <a
+        href="/ideas/voting-app-library"
+        onClick={[Function]}
+      >
+         Details 
+      </a>
+    </li>
+    <li
+      className="ideaListing"
+    >
+      <h3>
+        Summary: 
+        Recipe Database
+         
+      </h3>
+      <p>
+        <b>
+          Description
+        </b>
+        : 
+        Aside from just doing "allourrecipes.com", it'd also be nice if I can get epub export for the recipes. A new digital version of the Bowhay cookbook.
+      </p>
+      <p>
+        <b>
+          Status
+        </b>
+        : 
+        To Do
+      </p>
+      <a
+        href="/ideas/Set-up-recipe-database"
+        onClick={[Function]}
+      >
+         Details 
+      </a>
     </li>
   </ul>,
 ]

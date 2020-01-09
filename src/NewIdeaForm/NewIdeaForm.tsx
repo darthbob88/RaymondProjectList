@@ -1,19 +1,20 @@
 import React, { Component } from "react";
-import Idea from "../models/Idea";
+import { IdeaStatus, NewIdea } from "../models/Idea";
 interface NewIdeaProps {
-  addNewIdea: (newIdea: Idea) => void;
+  addNewIdea: (newIdea: NewIdea) => void;
 }
 
-export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
+export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
   constructor(props: NewIdeaProps) {
     super(props);
     this.state = {
       description: "",
       summary: "",
-      slug: ""
+      currentStatus:IdeaStatus.ToDo
     };
   }
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //TODO: There has to be an overarching type for this.
+  handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = event.currentTarget;
     const value = target.value;
     const name = target.name;
@@ -24,9 +25,6 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
         break;
       case "summary":
         this.setState({ summary: value });
-        break;
-      case "slug":
-        this.setState({ slug: value });
         break;
       default:
         console.log("Something has gone wrong " + JSON.stringify(this.state));
@@ -41,21 +39,18 @@ export default class NewIdeaForm extends Component<NewIdeaProps, Idea> {
     return (
       <React.Fragment>
         <form>
+          <h3>Adding New Idea</h3>
           <label>
             One-sentence summary of the idea
             <input type="text" name="summary" onChange={this.handleChange} />
           </label>
           <label>
             Long description of the idea
-            <input
-              type="text"
+            <textarea
+              rows={6}
               name="description"
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            URL slug for the idea.
-            <input type="text" name="slug" onChange={this.handleChange} />
           </label>
           <button onClick={this.submitIdea}>Add new idea to list</button>
         </form>

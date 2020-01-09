@@ -1,9 +1,10 @@
-import React from 'react'
-import Idea, {defaultIdeaList} from "../models/Idea";
+import React from "react";
+import Idea from "../models/Idea";
+import { Link } from "react-router-dom";
 
 type IdeaTableProps = {
-    listOfIdeas: Idea[];
-}
+  listOfIdeas: Idea[];
+};
 /**
  * Simple table to list ideas for me to work on. Will eventually fix it to show only summaries
  * until somebody clicks an idea to expand it, but for now this will do.
@@ -15,23 +16,34 @@ type IdeaTableProps = {
  *   <IdeaTable listOfIdeas={ideaList} />
  * )
  */
-const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({ listOfIdeas }) => {
-    return (
-      <React.Fragment>
-        <h1>List of Ideas</h1>
-        <ul id="ideaTable">
-          {listOfIdeas.map(idea => (
-            <IdeaListing key={idea.slug} idea={idea} />
-          ))}
-        </ul>
-      </React.Fragment>
-    );
-}
+const IdeaTable: React.FunctionComponent<IdeaTableProps> = ({
+  listOfIdeas
+}) => {
+  return (
+    <React.Fragment>
+      <h1>List of Ideas</h1>
+      <ul id="ideaTable">
+        {listOfIdeas.map(idea => (
+     <IdeaListing key={idea.slug} idea={idea} />
+        ))}
+      </ul>
+    </React.Fragment>
+  );
+};
 
-type IdeaListingProps = {idea: Idea};
+type IdeaListingProps = { idea: Idea };
 /**TODO: Better name. */
-const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({idea}) => (<li  className="ideaListing">
+const IdeaListing: React.FunctionComponent<IdeaListingProps> = ({ idea }) => (
+  <li className="ideaListing">
     <h3>Summary: {idea.summary} </h3>
-    <p>{idea.description}</p></li>)
+    <p>
+      <b>Description</b>: {idea.description}
+    </p>
+    <p>
+      <b>Status</b>: {idea.currentStatus}
+    </p>
+    <Link to={`/ideas/${idea.slug}`}> Details </Link>
+  </li>
+);
 
-export default IdeaTable
+export default IdeaTable;
