@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore"
 import "firebase/auth"
+import React from "react";
 var firebaseConfig = {
     apiKey: "AIzaSyDrCrX59ouDqQAlmtbUBjUxML0zWOeN63I",
     authDomain: "raymondprojectlist.firebaseapp.com",
@@ -14,3 +15,4 @@ firebase.initializeApp(firebaseConfig);
 //TODO: Should I move all this to a single class or smth?
 export const databaseRef = firebase.firestore();
 export const firebaseAuth = firebase.auth();
+export const FirebaseContext = React.createContext(firebaseAuth)
