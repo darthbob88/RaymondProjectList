@@ -16,8 +16,8 @@ const App: React.FC = () => {
       <Switch>
         <Route path={ROUTES.SIGN_IN} component={SignInForm} />
         <Route path={ROUTES.SIGN_UP} component={SignUpForm} />
-        <Route path={ROUTES.HOME} exact component={IdeaListPage} />
-        <Route path={ROUTES.HOME} exact component={IdeaListPage} />
+        <Route path={ROUTES.HOME} component={IdeaListPage} />
+        <Route path={ROUTES.LANDING} exact component={IdeaListPage} />
         <Route path="/ideas/:id" component={IdeaDetailPage} />
       </Switch>
     </div>
