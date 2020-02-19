@@ -11,4 +11,6 @@ var firebaseConfig = {
     appId: "1:397596389512:web:b56826c6facf9c9064ef3d"
   };
 firebase.initializeApp(firebaseConfig);
+//TODO: Should I move all this to a single class or smth?
 export const databaseRef = firebase.firestore();
+export const firebaseAuth = firebase.auth();
