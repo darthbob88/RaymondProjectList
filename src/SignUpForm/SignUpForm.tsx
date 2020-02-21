@@ -22,6 +22,7 @@ type NewUserState = {
   error: any;
 };
 
+//TODO: Clean this up so it's a proper initial state.
 const INITIAL_STATE: NewUserState = {
   username: "Raymond",
   email: "darthbob88@gmail.com",
@@ -29,7 +30,8 @@ const INITIAL_STATE: NewUserState = {
   passwordTwo: "lvader",
   error: null
 };
-//TODO: Fix this typing
+
+//TODO: Fix this prop typing
 class SignUpFormBase extends Component<any, NewUserState> {
   constructor(props: any) {
     super(props);
@@ -88,6 +90,7 @@ class SignUpFormBase extends Component<any, NewUserState> {
       email === "" ||
       username === "";
 
+    //TODO: Fix this form for accessibility and clarity.
     return (
       <form onSubmit={this.onSubmit}>
         <input
