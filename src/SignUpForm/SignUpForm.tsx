@@ -42,7 +42,7 @@ class SignUpFormBase extends Component<any, NewUserState> {
   onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     const { username, email, passwordOne } = this.state;
 
-    AuthService.doCreateUserWithEmailAndPassword(email, passwordOne)
+    AuthService.doCreateUserWithEmailAndPassword(email, passwordOne, username)
       .then(authUser => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
