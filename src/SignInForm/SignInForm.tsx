@@ -1,23 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FirebaseContext } from "../firebase";
 //TODO: Replace this with a class/object, so I can just import AuthService
 import * as AuthService from "../models/AuthService";
 import * as ROUTES from "../routes";
 
 export const SignInForm = () => {
-  const onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
-    const INITIAL_STATE = {
-      username: "Raymond",
-      email: "darthbob88@gmail.com",
-      passwordOne: "lvader",
-      passwordTwo: "lvader",
-      error: null
-    };
-
-    AuthService.doSignInWithEmailAndPassword(
-      INITIAL_STATE.email,
-      INITIAL_STATE.passwordOne
-    )
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    //TODO: Add "redirect back to home page" here.
+    AuthService.doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         if (authUser.user != null)
           console.log(`Successfully logged in as ${authUser.user.email}`);
@@ -26,22 +18,27 @@ export const SignInForm = () => {
 
     event.preventDefault();
   };
+  const isInvalid = password === "" || email === "";
   return (
-    <div id="firebaseui-auth-container">
-      <FirebaseContext.Consumer>
-        {firebase => {
-          return (
-            <div>
-              I have access to Firebase and can render something. Current user
-              is
-              {firebase.currentUser != null
-                ? firebase.currentUser.email
-                : "Nobody"}
-              <button onClick={onSubmit}>Log in as darthbob88</button>
-            </div>
-          );
-        }}
-      </FirebaseContext.Consumer>
-    </div>
+    //TODO: Fix this form for accessibility and clarity.
+    <form onSubmit={onSubmit}>
+      <input
+        name="email"
+        value={email}
+        onChange={event => setEmail(event.target.value)}
+        type="text"
+        placeholder="Email Address"
+      />
+      <input
+        name="password"
+        value={password}
+        onChange={event => setPassword(event.target.value)}
+        type="password"
+        placeholder="Password"
+      />
+      <button disabled={isInvalid} type="submit">
+        Sign In
+      </button>
+    </form>
   );
 };
