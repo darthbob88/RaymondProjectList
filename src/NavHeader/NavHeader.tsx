@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../routes";
 import { FirebaseContext } from "../firebase";
+import { SignOutButton } from "../SignInForm/SignOutButton";
 
 export const NavHeader = () => {
   const FirebaseAuth = useContext(FirebaseContext);
@@ -17,6 +18,7 @@ export const NavHeader = () => {
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
       <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
       <span>{loggedIn}</span>
+      <SignOutButton/>
     </div>
   );
 };
