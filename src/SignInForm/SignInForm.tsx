@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../models/AuthService";
 import { useHistory } from "react-router-dom";
+import { ROUTES } from "../routes";
 
 export const SignInForm = () => {
   const AuthService = useContext(AuthContext);
@@ -13,7 +14,7 @@ export const SignInForm = () => {
       .then(authUser => {
         if (authUser.user != null)
           console.log(`Successfully logged in as ${authUser.user.email}`);
-        history.push("/");
+        history.push(ROUTES.HOME);
       })
       .catch((error: any) => {});
 
