@@ -1,17 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import * as ROUTES from "../routes";
-import { FirebaseContext } from "../firebase";
 import { SignOutButton } from "../SignInForm/SignOutButton";
+import { AuthContext } from "../models/AuthService";
 
 export const NavHeader = () => {
-  const FirebaseAuth = useContext(FirebaseContext);
+  const FirebaseAuth = useContext(AuthContext);
   const message = (user: firebase.User | null) =>
     user ? `Currently logged in as ${user.displayName}` : "Not currently logged in";
-  let [loggedIn, setLoggedIn] = useState(message(FirebaseAuth.currentUser));
-  useEffect(() =>
-    FirebaseAuth.onAuthStateChanged(user => setLoggedIn(message(user)))
-  );
+  let loggedIn= message(FirebaseAuth.currentUser);
+  
   return (
     <div>
       <Link to={ROUTES.HOME}>Home</Link>

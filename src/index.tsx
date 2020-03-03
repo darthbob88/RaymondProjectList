@@ -4,14 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { FirebaseContext, firebaseAuth } from "./firebase";
+import { AuthProvider } from "./models/AuthService";
+
+
 
 ReactDOM.render(
-  <BrowserRouter>
-    <FirebaseContext.Provider value={firebaseAuth}>
+  <AuthProvider>    
+    <BrowserRouter>
       <App />
-    </FirebaseContext.Provider>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </AuthProvider>,
   document.getElementById("root")
 );
 

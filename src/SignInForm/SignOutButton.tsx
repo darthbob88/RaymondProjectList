@@ -1,5 +1,5 @@
 import React from "react";
-import * as AuthService from "../models/AuthService";
+import { AuthService} from "../models/AuthService";
 export const SignOutButton = () => {
   const signOut = () => {
     AuthService.doSignOut().then(() => {

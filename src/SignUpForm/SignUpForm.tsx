@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import * as AuthService from "../models/AuthService";
+import {AuthService} from "../models/AuthService";
 import * as ROUTES from "../routes";
 
 const SignUpPage = () => (
@@ -31,6 +31,7 @@ const INITIAL_STATE: NewUserState = {
   error: null
 };
 
+//TODO: Turn this into a functional component, using hooks.
 //TODO: Fix this prop typing
 class SignUpFormBase extends Component<any, NewUserState> {
   constructor(props: any) {

@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import { FirebaseContext } from "../firebase";
-//TODO: Replace this with a class/object, so I can just import AuthService
-import * as AuthService from "../models/AuthService";
-import * as ROUTES from "../routes";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../models/AuthService";
 
 export const SignInForm = () => {
+  const AuthService = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
