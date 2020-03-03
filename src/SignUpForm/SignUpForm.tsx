@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import {AuthService} from "../models/AuthService";
-import * as ROUTES from "../routes";
+import { ROUTES} from "../routes";
 
 const SignUpPage = () => (
   <div>

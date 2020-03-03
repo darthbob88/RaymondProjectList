@@ -1,7 +1,9 @@
-export const SIGN_UP = '/signup';
-export const SIGN_IN = '/signin';
-export const LANDING = '/';
-export const HOME = '/home';
-export const ACCOUNT = '/account';
-export const ADMIN = '/admin';
-export const PASSWORD_FORGET = '/pw-forget';
+const SIGN_UP = '/signup';
+const SIGN_IN = '/signin';
+const LANDING = '/';
+const HOME = '/home';
+const ACCOUNT = '/account';
+const ADMIN = '/admin';
+const PASSWORD_FORGET = '/pw-forget';
+
+export const ROUTES = { SIGN_IN, SIGN_UP, LANDING, HOME, ACCOUNT, ADMIN, PASSWORD_FORGET }

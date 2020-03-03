@@ -1,16 +1,19 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../models/AuthService";
+import { useHistory } from "react-router-dom";
 
 export const SignInForm = () => {
   const AuthService = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useHistory();
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     //TODO: Add "redirect back to home page" here.
     AuthService.doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         if (authUser.user != null)
           console.log(`Successfully logged in as ${authUser.user.email}`);
+        history.push("/");
       })
       .catch((error: any) => {});
 

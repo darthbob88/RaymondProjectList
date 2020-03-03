@@ -1,10 +1,10 @@
 import React from "react";
-import { Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import IdeaListPage from "./IdeaListPage/IdeaListPage";
 import IdeaDetailPage from "./IdeaDetailPage";
 import { SignInForm } from "./SignInForm/SignInForm";
-import * as ROUTES from "./routes";
+import { ROUTES } from "./routes";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { NavHeader } from "./NavHeader/NavHeader";
 
