@@ -24,20 +24,27 @@ export const SignInForm = () => {
   return (
     //TODO: Fix this form for accessibility and clarity.
     <form onSubmit={onSubmit}>
-      <input
-        name="email"
-        value={email}
-        onChange={event => setEmail(event.target.value)}
-        type="text"
-        placeholder="Email Address"
-      />
-      <input
-        name="password"
-        value={password}
-        onChange={event => setPassword(event.target.value)}
-        type="password"
-        placeholder="Password"
-      />
+      <h3>Sign-in form</h3>
+      <label>
+        Email Address
+        <input
+          name="email"
+          value={email}
+          onChange={event => setEmail(event.target.value)}
+          type="text"
+          placeholder="Email Address"
+        />
+      </label>
+      <label>
+        Password
+        <input
+          name="password"
+          value={password}
+          onChange={event => setPassword(event.target.value)}
+          type="password"
+          placeholder="Password"
+        />
+      </label>
       <button disabled={isInvalid} type="submit">
         Sign In
       </button>

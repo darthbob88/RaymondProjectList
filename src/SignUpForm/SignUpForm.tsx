@@ -1,18 +1,9 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import {AuthService} from "../models/AuthService";
-import { ROUTES} from "../routes";
-
-const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
-  </div>
-);
-type NewUserProps = {
-  history: [];
-};
+import { AuthService } from "../models/AuthService";
+import { ROUTES } from "../routes";
+import "./styles.css";
 
 type NewUserState = {
   username: string;
@@ -22,12 +13,11 @@ type NewUserState = {
   error: any;
 };
 
-//TODO: Clean this up so it's a proper initial state.
 const INITIAL_STATE: NewUserState = {
-  username: "Raymond",
-  email: "darthbob88@gmail.com",
-  passwordOne: "lvader",
-  passwordTwo: "lvader",
+  username: "",
+  email: "",
+  passwordOne: "",
+  passwordTwo: "",
   error: null
 };
 
@@ -93,35 +83,48 @@ class SignUpFormBase extends Component<any, NewUserState> {
 
     //TODO: Fix this form for accessibility and clarity.
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
-          name="username"
-          value={username}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Full Name"
-        />
-        <input
-          name="email"
-          value={email}
-          onChange={this.onChange}
-          type="text"
-          placeholder="Email Address"
-        />
-        <input
-          name="passwordOne"
-          value={passwordOne}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Password"
-        />
-        <input
-          name="passwordTwo"
-          value={passwordTwo}
-          onChange={this.onChange}
-          type="password"
-          placeholder="Confirm Password"
-        />
+      <form onSubmit={this.onSubmit} className="SignUp">
+        <h3>Sign Up</h3>
+        <label>
+          Username
+          <input
+            name="username"
+            value={username}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Full Name"
+          />
+        </label>
+        <label>
+          Email address
+          <input
+            name="email"
+            value={email}
+            onChange={this.onChange}
+            type="text"
+            placeholder="Email Address"
+          />
+        </label>
+        <label>
+          Password
+          <input
+            name="passwordOne"
+            value={passwordOne}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Password"
+          />
+        </label>
+        <label>
+          Confirm Password
+          <input
+            name="passwordTwo"
+            value={passwordTwo}
+            onChange={this.onChange}
+            type="password"
+            placeholder="Confirm Password"
+          />
+        </label>
         <button disabled={isInvalid} type="submit">
           Sign Up
         </button>
@@ -139,7 +142,5 @@ const SignUpLink = () => (
 );
 
 const SignUpForm = withRouter(SignUpFormBase);
-
-export default SignUpPage;
 
 export { SignUpForm, SignUpLink };
