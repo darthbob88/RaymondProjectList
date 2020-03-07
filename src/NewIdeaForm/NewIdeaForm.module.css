@@ -1,0 +1,15 @@
+form.NewIdeaForm {
+  margin: 0 auto;
+}
+.NewIdeaForm label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.NewIdeaForm input,
+.NewIdeaForm textarea {
+  margin-top: 0.5rem;
+  padding: 0.2rem;
+  width: 100%;
+  display: block;
+}
