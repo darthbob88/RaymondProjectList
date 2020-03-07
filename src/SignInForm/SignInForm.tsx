@@ -8,6 +8,11 @@ export const SignInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+
+  const onSignInGoogle = () => {
+    AuthService.doSignInWithGoogleOauth();
+  };
+
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     //TODO: Add "redirect back to home page" here.
     AuthService.doSignInWithEmailAndPassword(email, password)
@@ -22,32 +27,36 @@ export const SignInForm = () => {
   };
   const isInvalid = password === "" || email === "";
   return (
+    //TODO: Extract some of this to separate forms for email/pw, OAuth, etc.
     //TODO: Fix this form for accessibility and clarity.
-    <form onSubmit={onSubmit}>
-      <h3>Sign-in form</h3>
-      <label>
-        Email Address
-        <input
-          name="email"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
-          type="text"
-          placeholder="Email Address"
-        />
-      </label>
-      <label>
-        Password
-        <input
-          name="password"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
-          type="password"
-          placeholder="Password"
-        />
-      </label>
-      <button disabled={isInvalid} type="submit">
-        Sign In
-      </button>
-    </form>
+    <React.Fragment>
+      <form onSubmit={onSubmit}>
+        <h3>Sign-in form</h3>
+        <label>
+          Email Address
+          <input
+            name="email"
+            value={email}
+            onChange={event => setEmail(event.target.value)}
+            type="text"
+            placeholder="Email Address"
+          />
+        </label>
+        <label>
+          Password
+          <input
+            name="password"
+            value={password}
+            onChange={event => setPassword(event.target.value)}
+            type="password"
+            placeholder="Password"
+          />
+        </label>
+        <button disabled={isInvalid} type="submit">
+          Sign In
+        </button>
+      </form>
+      <button onClick={onSignInGoogle}>Sign in with Google OAuth</button>
+    </React.Fragment>
   );
 };

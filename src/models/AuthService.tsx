@@ -1,5 +1,6 @@
 import { firebaseAuth } from "../firebase";
 import React, { useEffect, useState } from "react";
+import firebase from "firebase";
 
 const doCreateUserWithEmailAndPassword = (
   email: string,
@@ -33,6 +34,11 @@ const doPasswordUpdate = (password: string) => {
   }
 };
 
+const doSignInWithGoogleOauth = () =>{
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebaseAuth.useDeviceLanguage();
+  firebase.auth().signInWithRedirect(provider);
+}
 const currentUser = null;
 export const AuthService = {
   currentUser,
@@ -40,6 +46,7 @@ export const AuthService = {
   doCreateUserWithEmailAndPassword,
   doPasswordUpdate,
   doSignInWithEmailAndPassword,
+  doSignInWithGoogleOauth,
   doSignOut
 };
 
