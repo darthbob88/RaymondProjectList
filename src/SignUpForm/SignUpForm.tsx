@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 
 import { AuthService } from "../models/AuthService";
 import { ROUTES } from "../routes";
-import "./styles.css";
 
 type NewUserState = {
   username: string;
