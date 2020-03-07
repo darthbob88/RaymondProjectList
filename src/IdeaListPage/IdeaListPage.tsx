@@ -7,6 +7,8 @@ type IdeaListPageState = {
   listOfIdeas: Idea[];
   isLoading: boolean;
 };
+//TODO: Fix this state.
+//TODO: Replace this with functional component.
 export default class IdeaListPage extends Component<{}, IdeaListPageState> {
   constructor(props: any) {
     super(props);
@@ -15,7 +17,7 @@ export default class IdeaListPage extends Component<{}, IdeaListPageState> {
       listOfIdeas: []
     };
   }
-
+//TODO: Replace this with hooks.
   async componentDidMount() {
     const result = await IdeasService.fetchAllIdeas();
     this.setState({ listOfIdeas: result, isLoading: false });
