@@ -5,6 +5,7 @@ interface UpdateIdeaProps {
   currentIdea: Idea;
   updateExistingIdea: (ideaID: string, ideaPatch: Partial<Idea>) => void;
 }
+//TODO: Functional component.
 export default class UpdateIdeaForm extends Component<UpdateIdeaProps, Idea> {
   constructor(props: UpdateIdeaProps) {
     super(props);

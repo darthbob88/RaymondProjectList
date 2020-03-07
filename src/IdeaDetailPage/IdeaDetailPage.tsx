@@ -7,6 +7,8 @@ type IdeaDetailPageState = {
   isLoading: boolean;
   hasError: boolean;
 };
+//TODO: Replace this with a functional component using useParam.
+// https://dev.to/ibrahima92/a-complete-beginner-s-guide-to-react-router-include-router-hooks-kgd
 class IdeaDetailPage extends Component<
   RouteComponentProps<{ id: string }>,
   IdeaDetailPageState
