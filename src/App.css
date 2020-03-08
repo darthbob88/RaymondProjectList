@@ -1,5 +1,7 @@
 .App {
   text-align: left;
   max-width: 80vw;
-  margin: 0 auto;
+  margin: 0 auto 2rem;
 }
+
+a {margin: 0 .3rem;}

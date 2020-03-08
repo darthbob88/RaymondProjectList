@@ -7,6 +7,7 @@ import { SignInForm } from "./SignInForm/SignInForm";
 import { ROUTES } from "./routes";
 import { SignUpForm } from "./SignUpForm/SignUpForm";
 import { NavHeader } from "./NavHeader/NavHeader";
+import { NavFooter } from "./NavFooter/NavFooter";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Route path={ROUTES.LANDING} exact component={IdeaListPage} />
         <Route path="/ideas/:id" component={IdeaDetailPage} />
       </Switch>
+      <NavFooter/>
     </div>
   );
 };
