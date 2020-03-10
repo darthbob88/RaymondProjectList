@@ -1,0 +1,16 @@
+form.UpdateIdeaForm {
+    margin: 0 auto;
+  }
+  .UpdateIdeaForm label {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .UpdateIdeaForm input,
+  .UpdateIdeaForm textarea {
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    width: 100%;
+    display: block;
+  }
+  

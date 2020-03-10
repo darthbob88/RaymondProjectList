@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import Idea, { IdeaStatus } from "../models/Idea";
-
+import styles from "./UpdateIdeaForm.module.css"
 interface UpdateIdeaProps {
   currentIdea: Idea;
   updateExistingIdea: (ideaID: string, ideaPatch: Partial<Idea>) => void;
 }
 //TODO: Functional component.
+//TODO: Move those props to Context.
 export default class UpdateIdeaForm extends Component<UpdateIdeaProps, Idea> {
   constructor(props: UpdateIdeaProps) {
     super(props);
@@ -49,8 +50,7 @@ export default class UpdateIdeaForm extends Component<UpdateIdeaProps, Idea> {
   //TODO: Actually style this shit.
   render() {
     return (
-      <React.Fragment>
-        <form>
+        <form className={styles.UpdateIdeaForm} >
           <h3>Updating idea {this.state.summary} </h3>
           <label>
             One-sentence summary of the idea
@@ -107,7 +107,6 @@ export default class UpdateIdeaForm extends Component<UpdateIdeaProps, Idea> {
           </label>
           <button onClick={this.submitIdea}>Update this idea</button>
         </form>
-      </React.Fragment>
     );
   }
 }
