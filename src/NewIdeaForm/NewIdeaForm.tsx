@@ -8,15 +8,15 @@ import styles from "./NewIdeaForm.module.css"
 interface NewIdeaProps {
   addNewIdea: (newIdea: NewIdea) => void;
 }
+const INITIAL_STATE = {
+  description: "",
+  summary: "",
+  currentStatus: IdeaStatus.ToDo};
 //TODO: Replace with functional component
 export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
   constructor(props: NewIdeaProps) {
     super(props);
-    this.state = {
-      description: "",
-      summary: "",
-      currentStatus: IdeaStatus.ToDo
-    };
+    this.state = INITIAL_STATE;
   }
   //TODO: There has to be an overarching type for this.
   handleChange = (
@@ -40,6 +40,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
   };
   submitIdea = (event: any) => {
     this.props.addNewIdea(this.state);
+    this.setState(INITIAL_STATE);
     event.preventDefault();
   };
   render() {
@@ -62,6 +63,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
                     <input
                       type="text"
                       name="summary"
+                      value={this.state.summary}
                       onChange={this.handleChange}
                       placeholder="Brief summary"
                     />
@@ -71,6 +73,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
                     <textarea
                       rows={6}
                       name="description"
+                      value={this.state.description}
                       onChange={this.handleChange}
                       placeholder="Long description of the idea"
                     />
