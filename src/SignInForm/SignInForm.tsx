@@ -56,7 +56,12 @@ export const SignInForm = () => {
           Sign In
         </button>
       </form>
-      <button onClick={onSignInGoogle}>Sign in with Google OAuth</button>
+      {/*TODO: Get redirection working properly.*/}
+      <p>
+        <button onClick={onSignInGoogle}>Sign in with Google OAuth</button>
+        <br />
+        Note: You will have to manually click back to the home page. Sorry.
+      </p>
     </React.Fragment>
   );
 };
