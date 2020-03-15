@@ -3,6 +3,8 @@ import { IdeaStatus, NewIdea } from "../models/Idea";
 import { AuthContext } from "../models/AuthService";
 import { ROUTES } from "../routes";
 import { Link } from "react-router-dom";
+//Using CSS Modules over styled-components because I like autocomplete
+import styles from "./NewIdeaForm.module.css"
 interface NewIdeaProps {
   addNewIdea: (newIdea: NewIdea) => void;
 }
@@ -45,7 +47,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
       <AuthContext.Consumer>
         {authContext => {
           return (
-            <form>
+            <form className={styles.NewIdeaForm}>
               <h3>Adding New Idea</h3>
               {authContext.currentUser == null ? (
                 <p>
@@ -61,6 +63,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
                       type="text"
                       name="summary"
                       onChange={this.handleChange}
+                      placeholder="Brief summary"
                     />
                   </label>
                   <label>
@@ -69,6 +72,7 @@ export default class NewIdeaForm extends Component<NewIdeaProps, NewIdea> {
                       rows={6}
                       name="description"
                       onChange={this.handleChange}
+                      placeholder="Long description of the idea"
                     />
                   </label>
                 </React.Fragment>
