@@ -14,7 +14,6 @@ export const SignInForm = () => {
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    //TODO: Add "redirect back to home page" here.
     AuthService.doSignInWithEmailAndPassword(email, password)
       .then(authUser => {
         if (authUser.user != null)
@@ -28,7 +27,6 @@ export const SignInForm = () => {
   const isInvalid = password === "" || email === "";
   return (
     //TODO: Extract some of this to separate forms for email/pw, OAuth, etc.
-    //TODO: Fix this form for accessibility and clarity.
     <React.Fragment>
       <form onSubmit={onSubmit}>
         <h3>Sign-in form</h3>

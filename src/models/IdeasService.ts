@@ -1,7 +1,7 @@
 import slugify from "slugify";
 import { databaseRef } from "../firebase";
 import Idea, { NewIdea } from "./Idea";
-
+//TODO: Turn this into context so I can make it both automatically updated and pull it only once.
 //TODO: Turn this into a real-time watcher, so it gets automatically updated.
 export const fetchAllIdeas = async (): Promise<Idea[]> => {
   let listOfIdeas: Idea[] = [];

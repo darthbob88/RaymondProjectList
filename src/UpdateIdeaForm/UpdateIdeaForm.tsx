@@ -47,7 +47,6 @@ export default class UpdateIdeaForm extends Component<UpdateIdeaProps, Idea> {
     this.props.updateExistingIdea(this.state.slug, this.state);
     event.preventDefault();
   };
-  //TODO: Actually style this shit.
   render() {
     return (
         <form className={styles.UpdateIdeaForm} >
