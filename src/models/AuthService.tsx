@@ -1,6 +1,6 @@
 import { firebaseAuth } from "../firebase";
 import React, { useEffect, useState } from "react";
-import firebase from "firebase";
+import firebase, { User } from "firebase";
 
 const doCreateUserWithEmailAndPassword = (
   email: string,
@@ -39,7 +39,7 @@ const doSignInWithGoogleOauth = () =>{
   firebaseAuth.useDeviceLanguage();
   firebase.auth().signInWithRedirect(provider);
 }
-const currentUser = null;
+const currentUser: (User | null) = firebase.auth().currentUser;
 export const AuthService = {
   currentUser,
   doPasswordReset,
@@ -56,12 +56,9 @@ type AuthProviderTypes = { children: React.ReactNode };
 export const AuthProvider: React.FunctionComponent<AuthProviderTypes> = ({
   children
 }) => {
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState<User|null>(null);
   useEffect(() => {
-    firebaseAuth.onAuthStateChanged(user => {
-      setCurrentUser(user);
-      console.log(`AuthStateChanged, current user is ${currentUser}`);
-    });
+    firebaseAuth.onAuthStateChanged(user => setCurrentUser(user));
   });
   return (
     <AuthContext.Provider value={{ ...AuthService, currentUser }}>
