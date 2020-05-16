@@ -45,10 +45,14 @@ const IdeaDetailPage = () => {
             <b>Status</b>: {selectedIdea.currentStatus}
           </p>
           <p>
-            <b>Repository URL</b>: {selectedIdea.repositoryURL}
+            <b>Repository URL</b>:
+            <a href={selectedIdea.repositoryURL}>
+              {selectedIdea.repositoryURL}
+            </a>
           </p>
           <p>
-            <b>Website URL</b>: {selectedIdea.projectURL}
+            <b>Website URL</b>:
+            <a href={selectedIdea.projectURL}>{selectedIdea.projectURL}</a>
           </p>
         </React.Fragment>
       );

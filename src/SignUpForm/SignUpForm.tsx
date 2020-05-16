@@ -80,7 +80,6 @@ class SignUpFormBase extends Component<any, NewUserState> {
       email === "" ||
       username === "";
 
-    //TODO: Fix this form for accessibility and clarity.
     return (
       <form onSubmit={this.onSubmit} className="SignUp">
         <h3>Sign Up</h3>
